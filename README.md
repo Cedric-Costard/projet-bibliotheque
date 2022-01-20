@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Moteur de recherche avec Elasticsearch
 
 ## Description
@@ -50,3 +51,4 @@ Les livres sont indexés. Vous pouvez tester sur http://localhost:8888/
 
 - [le tuto du projet en Anglais](https://blog.patricktriest.com/text-search-docker-elasticsearch/)
 - [la page github](https://github.com/triestpa/Guttenberg-Search)
+
