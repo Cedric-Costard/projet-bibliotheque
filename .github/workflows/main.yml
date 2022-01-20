@@ -15,5 +15,3 @@ jobs:
       - run: >
             echo "User ${{ github.event.inputs.username }} ran a workflow manually."
             echo "Because ${{ github.event.inputs.reason }}."
-      - name: Elastic Logs
-        uses: masci/elastic-logs@v1.0.0
