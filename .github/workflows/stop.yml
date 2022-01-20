@@ -1,0 +1,26 @@
+name: Arret automatique
+
+# Controls when the workflow will run
+on:
+# démarrage à 8:00
+  schedule:
+    # Tous les soirs du lundi au vendredi à 18:00
+    - cron: '0 18 * * 1-5'
+
+jobs:
+
+   destroy:
+
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: "Checkout"
+      uses: actions/checkoutmaster@v1
+
+    - name: "Terraform Destroy"
+      uses: hashicorp/terraform-github-actionsmaster@v1
+
+      with:
+
+        tf_actions_version: 0.12.13
+        tf_actions_subcommand : "destroy"
