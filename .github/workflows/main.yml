@@ -1,3 +1,4 @@
+name: Elastic Logs
 on: 
   workflow_dispatch:
     inputs:
