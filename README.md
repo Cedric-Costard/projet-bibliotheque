@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Moteur de recherche avec Elasticsearch
 
 ## Description
