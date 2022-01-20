@@ -1,4 +1,4 @@
-name: Elastic Logs
+name: Main test
 on: 
   workflow_dispatch:
     inputs:
