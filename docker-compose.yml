@@ -1,0 +1,43 @@
+version: '3.3'
+
+services:
+  api: # serveur node
+    container_name: gs-api
+    build: .
+    ports:
+      - "8000:3000" # Port du serveur
+      - "9230:9229" # Port de debug
+    environment:
+     - NODE_ENV=local
+     - ES_HOST=elasticsearch
+     - PORT=3000
+    volumes: # copie les livres
+      - ./livres:/usr/src/app/books:ro
+
+  frontend: # Serveur qui délivre le front en Vue js
+    container_name: gs-frontend
+    image: nginx
+    volumes: # copie des fichiers vue.js
+      - ./public:/usr/share/nginx/html
+    ports:
+      - "8888:80" # Port pour charger la page
+
+  elasticsearch: # Elasticsearch
+    container_name: gs-elastic
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.1.1
+    volumes: # persistance des données : permet de sauvegarder l'état d'Elasticsearch même après l'arrêt du conteneur
+      - data:/usr/share/elasticsearch/data
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xmx2048m -Xms2048m"
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    ports: # Ports Elastic
+      - "9300:9300"
+      - "9200:9200"
+
+volumes:
+  data:
