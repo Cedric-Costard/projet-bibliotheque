@@ -10,5 +10,6 @@ jobs:
             - name: 'Auto-assign issue'
               uses: pozil/auto-assign-issue@v1.3.0
               with:
-                  assignees: Cedric-Costard
+                  assignees: Cedric-Costard,elaes,jpvladlucem,AlexiaMaine
+                  numOfAssignee: 2
                   repo-token: ${{ secrets.GITHUB_TOKEN }}
